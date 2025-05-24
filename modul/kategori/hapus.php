@@ -1,0 +1,29 @@
+<?php
+header('Content-Type: application/json');
+
+require_once '../../koneksi/db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $id = $_GET['id'];
+    
+    $query = "UPDATE kategori_produk SET status_dihapus = 1 WHERE id_kategori_produk = ?";
+    $stmt = $koneksi->prepare($query);
+    $stmt->bind_param("i", $id);
+    
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true, 
+                          'message' => 'Data kategori berhasil dihapus']);
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Gagal menghapus data kategori'
+        ]);
+    }
+    
+    $stmt->close();
+    $koneksi->close();
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method tidak diizinkan'
+    ]);}?>

@@ -1,0 +1,185 @@
+.sidebar-expanded {
+  width: 240px;
+}
+.sidebar-collapsed {
+  width: 140px;
+}
+.sidebar-item-text {
+  transition: opacity 0.3s;
+}
+.sidebar-collapsed .sidebar-item-text {
+  opacity: 0;
+  display: none;
+}
+.sidebar-hover-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sidebar-hover-card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+.submenu-transition {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+/* Memastikan ikon tetap pada ukuran yang sama */
+.sidebar svg,
+.sidebar-expanded svg,
+.sidebar-collapsed svg {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transition: transform 0.3s ease;
+  }
+  .sidebar-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-in-up {
+  0% { 
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  100% { 
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Fade animations */
+.animate-fade-in {
+    animation: fade-in 0.8s ease-in-out;
+}
+
+.animate-fade-out {
+    animation: fade-out 0.8s ease-in-out;
+}
+
+/* Slide animations */
+.animate-slide-in-up {
+    animation: slide-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-in-down {
+    animation: slide-in-down 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-in-left {
+    animation: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scale animations */
+.animate-scale-in {
+    animation: scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-bounce-in {
+    animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes slide-in-down {
+    0% { 
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    0% { 
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% { 
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in {
+    0% { 
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    70% { 
+        transform: scale(0.9);
+        opacity: 0.9;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}  
